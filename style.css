@@ -1,1 +1,262 @@
+/* Importando uma fonte moderna do Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap");
 
+/* --- Variáveis de Cores e Estilos Globais --- */
+:root {
+  --bg-dark-gradient: radial-gradient(circle, #2c1a4d, #0f0524);
+  --accent-purple: #8e44ad;
+  --accent-magenta: #c039a3;
+  --text-primary: #f5f5f5;
+  --text-secondary: #a7a3b0;
+  --card-bg: rgba(255, 255, 255, 0.05);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: var(--bg-dark-gradient);
+  color: var(--text-primary);
+  line-height: 1.6;
+}
+
+/* --- Cabeçalho e Navegação --- */
+.header {
+  width: 100%;
+  padding: 1.5rem 5%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  background-color: rgba(15, 5, 36, 0.5);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.nav-logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  text-decoration: none;
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+
+.nav-link {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-weight: 400;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: var(--accent-magenta);
+}
+
+.hamburger {
+  display: none;
+  cursor: pointer;
+}
+
+.bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px auto;
+  background-color: var(--text-primary);
+  transition: all 0.3s ease-in-out;
+}
+
+/* --- Seção Principal "Sobre Mim" --- */
+main {
+  padding-top: 100px; /* Espaço para o cabeçalho fixo */
+}
+
+.about-me {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  padding: 4rem 5%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.about-me-text {
+  flex: 1;
+  max-width: 600px;
+}
+
+.about-me-text h1 {
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+.about-me-text h2 {
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: var(--accent-magenta);
+  margin-bottom: 1rem;
+}
+
+.about-me-text p {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+}
+
+.about-me-photo {
+  flex-shrink: 0;
+}
+
+.about-me-photo img {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 5px solid var(--accent-purple);
+  box-shadow: 0 0 25px var(--accent-purple);
+}
+
+/* --- Barra de Habilidades (Skills) --- */
+.skills {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  background-color: var(--card-bg);
+  padding: 2rem 5%;
+  max-width: 1200px;
+  margin: 2rem auto;
+  border-radius: 10px;
+}
+
+.skill-item i {
+  font-size: 4rem;
+  color: var(--text-secondary);
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.skill-item i:hover {
+  transform: scale(1.1);
+  color: var(--text-primary);
+}
+
+/* --- Seção de Projetos --- */
+.projects {
+  padding: 4rem 5%;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.projects h2 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.project-card {
+  background: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-10px);
+}
+
+/* --- Rodapé --- */
+footer {
+  text-align: center;
+  padding: 2rem;
+  margin-top: 2rem;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* --- Media Queries para Responsividade (Mobile) --- */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  .hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+  .hamburger.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  .nav-menu {
+    position: fixed;
+    left: -100%;
+    top: 80px;
+    flex-direction: column;
+    background-color: #0f0524;
+    width: 100%;
+    text-align: center;
+    transition: 0.3s;
+    gap: 0;
+  }
+
+  .nav-menu.active {
+    left: 0;
+  }
+
+  .nav-item {
+    padding: 1.5rem 0;
+  }
+
+  .about-me {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-me-text h1 {
+    font-size: 2.5rem;
+  }
+
+  .about-me-photo img {
+    width: 250px;
+    height: 250px;
+  }
+
+  .skills {
+    gap: 1rem;
+  }
+  .skill-item i {
+    font-size: 3rem;
+  }
+}
