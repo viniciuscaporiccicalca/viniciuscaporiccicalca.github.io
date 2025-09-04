@@ -110,6 +110,7 @@ main {
 .about-me-text h1 {
   font-size: 3rem;
   font-weight: 700;
+  white-space: nowrap; /* Impede que o texto quebre a linha */
 }
 
 .about-me-text h2 {
@@ -246,6 +247,7 @@ footer {
 
   .about-me-text h1 {
     font-size: 2.5rem;
+    white-space: normal; /* Permite que o texto quebre em telas pequenas */
   }
 
   .about-me-photo img {
