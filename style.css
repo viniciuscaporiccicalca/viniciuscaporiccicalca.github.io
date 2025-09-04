@@ -9,6 +9,7 @@
   --text-primary: #f5f5f5;
   --text-secondary: #a7a3b0;
   --card-bg: rgba(255, 255, 255, 0.05);
+  --button-bg: #8e44ad;
 }
 
 * {
@@ -89,7 +90,7 @@ body {
 
 /* --- Seção Principal "Sobre Mim" --- */
 main {
-  padding-top: 100px; /* Espaço para o cabeçalho fixo */
+  padding-top: 100px;
 }
 
 .about-me {
@@ -110,7 +111,7 @@ main {
 .about-me-text h1 {
   font-size: 3rem;
   font-weight: 700;
-  white-space: nowrap; /* Impede que o texto quebre a linha */
+  white-space: nowrap;
 }
 
 .about-me-text h2 {
@@ -188,10 +189,53 @@ main {
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 .project-card:hover {
   transform: translateY(-10px);
+}
+
+.project-image {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.project-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.project-tech {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+}
+
+.project-links {
+  display: flex;
+  gap: 1rem;
+  margin-top: auto; /* Empurra os links para o final do card */
+}
+
+.project-button {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  background-color: var(--button-bg);
+  color: var(--text-primary);
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+.project-button:hover {
+  background-color: var(--accent-magenta);
 }
 
 /* --- Rodapé --- */
@@ -247,7 +291,7 @@ footer {
 
   .about-me-text h1 {
     font-size: 2.5rem;
-    white-space: normal; /* Permite que o texto quebre em telas pequenas */
+    white-space: normal;
   }
 
   .about-me-photo img {
