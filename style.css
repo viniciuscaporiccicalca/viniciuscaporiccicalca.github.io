@@ -263,11 +263,24 @@ footer {
   min-height: 90vh;
 }
 
+/* CONTAINER GERAL EXPANDIDO */
 .details-container {
-  max-width: 1000px;
+  max-width: 1600px; /* Aumentado de 1000px para 1600px */
+  width: 95%; /* Ocupa quase a tela toda */
   margin: 0 auto;
-  padding: 2rem 5%;
+  padding: 2rem 0; /* Padding lateral removido para aproveitar espaço */
   text-align: center;
+}
+
+/* REGRAS PARA CENTRALIZAR O TEXTO APENAS */
+.details-container h1,
+.details-container .tech-stack-display,
+.project-full-description {
+  max-width: 900px; /* Mantém o texto em uma largura de leitura confortável */
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 .details-container h1 {
@@ -284,14 +297,37 @@ footer {
   margin-bottom: 2rem;
 }
 
-/* Container do Carrossel */
+/* Descrição Completa */
+.project-full-description {
+  text-align: left;
+  background: var(--card-bg);
+  padding: 2rem;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 3rem;
+}
+
+.project-full-description h3 {
+  color: var(--accent-magenta);
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+}
+
+.project-full-description p {
+  margin-bottom: 1rem;
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+}
+
+/* --- CONTAINER DO CARROSSEL (LARGURA TOTAL) --- */
 .carousel-container {
   position: relative;
+  width: 100%; /* Ocupa 100% dos 1600px do pai */
   max-width: 100%;
-  margin: 0 auto 2rem auto; /* Margem inferior */
+  margin: 0 auto 2rem auto;
   border-radius: 15px;
   overflow: hidden;
-  background-color: rgba(0, 0, 0, 0.3); /* Fundo sutil atrás da imagem */
+  background-color: rgba(0, 0, 0, 0.2);
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 0 30px rgba(142, 68, 173, 0.2);
 }
@@ -300,7 +336,7 @@ footer {
 .carousel-slide {
   display: none;
   width: 100%;
-  padding: 0; /* Removido o padding de 20px */
+  padding: 0;
 }
 
 /* Slide Ativo */
@@ -319,13 +355,13 @@ footer {
   }
 }
 
+/* IMAGEM */
 .carousel-slide img {
   width: 100%;
   height: auto;
-  /* Removido max-height e object-fit para a imagem ocupar a largura total */
+  /* Sem limitação de altura para deixar a imagem crescer */
   display: block;
   margin: 0 auto;
-  border-radius: 5px;
 }
 
 /* Botões Anterior e Próximo */
@@ -336,51 +372,28 @@ footer {
   top: 50%;
   transform: translateY(-50%);
   width: auto;
-  padding: 16px;
+  padding: 20px;
   color: white;
   font-weight: bold;
-  font-size: 24px;
+  font-size: 30px; /* Aumentei o tamanho das setas */
   transition: 0.3s ease;
-  border-radius: 0 3px 3px 0;
   user-select: none;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 2;
+  border-radius: 5px;
 }
 
 .next-slide {
-  right: 0;
-  border-radius: 3px 0 0 3px;
+  right: 10px; /* Leve afastamento da borda */
 }
 
 .prev-slide {
-  left: 0;
+  left: 10px; /* Leve afastamento da borda */
 }
 
 .prev-slide:hover,
 .next-slide:hover {
   background-color: var(--accent-purple);
-}
-
-/* Descrição Completa */
-.project-full-description {
-  text-align: left;
-  background: var(--card-bg);
-  padding: 2rem;
-  border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  margin-bottom: 2rem; /* Espaço entre a descrição e o carrossel */
-}
-
-.project-full-description h3 {
-  color: var(--accent-magenta);
-  margin-bottom: 1rem;
-  font-size: 1.8rem;
-}
-
-.project-full-description p {
-  margin-bottom: 1rem;
-  color: var(--text-secondary);
-  font-size: 1.05rem;
 }
 
 /* --- Media Queries --- */
