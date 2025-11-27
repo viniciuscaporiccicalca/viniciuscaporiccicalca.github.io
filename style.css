@@ -300,7 +300,7 @@ footer {
 .carousel-slide {
   display: none;
   width: 100%;
-  padding: 20px;
+  padding: 0; /* Removido o padding de 20px */
 }
 
 /* Slide Ativo */
@@ -322,8 +322,7 @@ footer {
 .carousel-slide img {
   width: 100%;
   height: auto;
-  max-height: 70vh; /* Imagem ocupa no máximo 70% da altura da tela */
-  object-fit: contain;
+  /* Removido max-height e object-fit para a imagem ocupar a largura total */
   display: block;
   margin: 0 auto;
   border-radius: 5px;
@@ -369,6 +368,7 @@ footer {
   padding: 2rem;
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 2rem; /* Espaço entre a descrição e o carrossel */
 }
 
 .project-full-description h3 {
