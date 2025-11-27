@@ -256,7 +256,134 @@ footer {
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* --- Media Queries para Responsividade (Mobile) --- */
+/* --- ESTILOS DA PÁGINA DE DETALHES (Carrossel) --- */
+
+.details-page {
+  padding-top: 100px;
+  min-height: 90vh;
+}
+
+.details-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem 5%;
+  text-align: center;
+}
+
+.details-container h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.tech-stack-display {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  font-size: 3rem;
+  margin-bottom: 2rem;
+}
+
+/* Container do Carrossel */
+.carousel-container {
+  position: relative;
+  max-width: 100%;
+  margin: 0 auto 2rem auto; /* Margem inferior */
+  border-radius: 15px;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.3); /* Fundo sutil atrás da imagem */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 30px rgba(142, 68, 173, 0.2);
+}
+
+/* Slides */
+.carousel-slide {
+  display: none;
+  width: 100%;
+  padding: 20px;
+}
+
+/* Slide Ativo */
+.carousel-slide.active {
+  display: block;
+  animation: fadeEffect 0.5s;
+}
+
+/* Animação de Fade */
+@keyframes fadeEffect {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.carousel-slide img {
+  width: 100%;
+  height: auto;
+  max-height: 70vh; /* Imagem ocupa no máximo 70% da altura da tela */
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+  border-radius: 5px;
+}
+
+/* Botões Anterior e Próximo */
+.prev-slide,
+.next-slide {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: auto;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 24px;
+  transition: 0.3s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 2;
+}
+
+.next-slide {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.prev-slide {
+  left: 0;
+}
+
+.prev-slide:hover,
+.next-slide:hover {
+  background-color: var(--accent-purple);
+}
+
+/* Descrição Completa */
+.project-full-description {
+  text-align: left;
+  background: var(--card-bg);
+  padding: 2rem;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.project-full-description h3 {
+  color: var(--accent-magenta);
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+}
+
+.project-full-description p {
+  margin-bottom: 1rem;
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+}
+
+/* --- Media Queries --- */
 @media (max-width: 768px) {
   .hamburger {
     display: block;
@@ -313,138 +440,4 @@ footer {
   .skill-item i {
     font-size: 3rem;
   }
-}
-
-/* --- Estilos do Modal e Carrossel --- */
-
-/* O fundo escuro por trás do modal */
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 1000;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(15, 5, 36, 0.9);
-  backdrop-filter: blur(5px);
-}
-
-/* O conteúdo central do modal */
-.modal-content {
-  background: var(--bg-dark-gradient);
-  margin: 5% auto;
-  padding: 2rem;
-  border: 1px solid var(--accent-purple);
-  border-radius: 15px;
-  width: 90%;
-  max-width: 900px;
-  position: relative;
-  box-shadow: 0 0 30px rgba(142, 68, 173, 0.3);
-}
-
-/* Botão de fechar (X) */
-.close-modal {
-  color: var(--text-secondary);
-  float: right;
-  font-size: 2rem;
-  font-weight: bold;
-  cursor: pointer;
-  transition: color 0.3s ease;
-}
-
-.close-modal:hover {
-  color: var(--accent-magenta);
-}
-
-/* Container das imagens */
-.carousel-container {
-  position: relative;
-  max-width: 100%;
-  margin: auto;
-  border-radius: 10px;
-  overflow: hidden;
-  background-color: rgba(0, 0, 0, 0.2);
-  min-height: 200px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* Esconde os slides que não estão ativos */
-.carousel-slide {
-  display: none;
-  width: 100%;
-}
-
-/* Mostra o slide ativo */
-.carousel-slide.active {
-  display: block;
-  animation: fadeEffect 0.5s;
-}
-
-@keyframes fadeEffect {
-  from {
-    opacity: 0.4;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-.carousel-slide img {
-  width: 100%;
-  height: auto;
-  max-height: 60vh;
-  object-fit: contain;
-  border-radius: 8px;
-  display: block;
-  margin: 0 auto;
-}
-
-/* Botões Anterior e Próximo */
-.prev-slide,
-.next-slide {
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  width: auto;
-  padding: 16px;
-  margin-top: -22px;
-  color: white;
-  font-weight: bold;
-  font-size: 24px;
-  transition: 0.3s ease;
-  border-radius: 0 3px 3px 0;
-  user-select: none;
-  background-color: rgba(0, 0, 0, 0.3);
-  z-index: 2;
-}
-
-.next-slide {
-  right: 0;
-  border-radius: 3px 0 0 3px;
-}
-
-.prev-slide:left {
-  left: 0;
-}
-
-.prev-slide:hover,
-.next-slide:hover {
-  background-color: var(--accent-purple);
-}
-
-/* Descrição no rodapé do modal */
-.modal-description {
-  margin-top: 2rem;
-  text-align: left;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  padding-top: 1.5rem;
-}
-
-.modal-description h3 {
-  color: var(--accent-magenta);
-  margin-bottom: 1rem;
 }

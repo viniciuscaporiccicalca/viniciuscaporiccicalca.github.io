@@ -1,91 +1,70 @@
-// Seleciona o ícone do menu hamburger e o menu de navegação
+// --- Menu Hamburger (Funciona em todas as páginas) ---
 const hamburger = document.querySelector(".hamburger");
 const navMenu = document.querySelector(".nav-menu");
 
-// Adiciona um evento de 'click' ao hamburger
-hamburger.addEventListener("click", () => {
-  // Adiciona ou remove a classe 'active' para mostrar/esconder o menu
-  hamburger.classList.toggle("active");
-  navMenu.classList.toggle("active");
-});
-
-// Fecha o menu quando um link é clicado (útil em mobile)
-document.querySelectorAll(".nav-link").forEach((link) => {
-  link.addEventListener("click", () => {
-    hamburger.classList.remove("active");
-    navMenu.classList.remove("active");
+// Verifica se os elementos do menu existem antes de adicionar eventos
+if (hamburger && navMenu) {
+  hamburger.addEventListener("click", () => {
+    hamburger.classList.toggle("active");
+    navMenu.classList.toggle("active");
   });
-});
 
-// --- Lógica do Modal e Carrossel do Projeto Fênix ---
+  document.querySelectorAll(".nav-link").forEach((link) => {
+    link.addEventListener("click", () => {
+      hamburger.classList.remove("active");
+      navMenu.classList.remove("active");
+    });
+  });
+}
 
-// Elementos do DOM
-const modal = document.getElementById("fenix-modal");
-const btnOpenModal = document.getElementById("open-fenix-modal");
-const spanClose = document.getElementsByClassName("close-modal")[0];
+// --- Carrossel (Funciona apenas na página do projeto) ---
+
 const slides = document.getElementsByClassName("carousel-slide");
 const prevBtn = document.querySelector(".prev-slide");
 const nextBtn = document.querySelector(".next-slide");
 
-let slideIndex = 0; // Começa na primeira imagem
+// Verifica se existe carrossel na página atual
+if (slides.length > 0) {
+  let slideIndex = 0;
 
-// Função para abrir o modal
-if (btnOpenModal) {
-  btnOpenModal.addEventListener("click", () => {
-    modal.style.display = "block";
-    slideIndex = 0;
-    showSlides(slideIndex);
-    document.body.style.overflow = "hidden"; // Bloqueia scroll da página
-  });
-}
-
-// Função para fechar o modal no botão X
-if (spanClose) {
-  spanClose.addEventListener("click", () => {
-    closeModal();
-  });
-}
-
-// Função para fechar o modal clicando fora
-window.addEventListener("click", (event) => {
-  if (event.target == modal) {
-    closeModal();
-  }
-});
-
-function closeModal() {
-  modal.style.display = "none";
-  document.body.style.overflow = "auto"; // Reabilita scroll
-}
-
-// --- Controles do Carrossel ---
-
-if (prevBtn) {
-  prevBtn.addEventListener("click", () => {
-    changeSlide(-1);
-  });
-}
-
-if (nextBtn) {
-  nextBtn.addEventListener("click", () => {
-    changeSlide(1);
-  });
-}
-
-function changeSlide(n) {
-  slideIndex += n;
-  if (slideIndex >= slides.length) {
-    slideIndex = 0;
-  }
-  if (slideIndex < 0) {
-    slideIndex = slides.length - 1;
-  }
+  // Inicia mostrando o primeiro slide
   showSlides(slideIndex);
-}
 
-function showSlides(n) {
-  for (let i = 0; i < slides.length; i++) {
-    slides[i].classList.remove("active");
+  // Adiciona eventos aos botões se eles existirem
+  if (prevBtn) {
+    prevBtn.addEventListener("click", () => {
+      changeSlide(-1);
+    });
   }
-  slides[n].classList.add("active");
+
+  if (nextBtn) {
+    nextBtn.addEventListener("click", () => {
+      changeSlide(1);
+    });
+  }
+
+  // Função para mudar o slide (avançar ou voltar)
+  function changeSlide(n) {
+    slideIndex += n;
+
+    // Loop infinito:
+    if (slideIndex >= slides.length) {
+      slideIndex = 0; // Volta para o primeiro
+    }
+    if (slideIndex < 0) {
+      slideIndex = slides.length - 1; // Vai para o último
+    }
+
+    showSlides(slideIndex);
+  }
+
+  // Função para exibir o slide correto
+  function showSlides(n) {
+    // Esconde todos
+    for (let i = 0; i < slides.length; i++) {
+      slides[i].classList.remove("active");
+    }
+    // Mostra o atual
+    slides[n].classList.add("active");
+  }
 }
