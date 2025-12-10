@@ -218,6 +218,22 @@ main {
   margin-bottom: 1.5rem;
   font-size: 2rem;
   justify-content: center;
+  align-items: center; /* Centraliza verticalmente */
+}
+
+/* Regra nova para as imagens (logos customizados) dentro dos ícones */
+.project-tech img {
+  height: 2rem; /* Mesma altura aproximada dos ícones de fonte */
+  width: auto;
+  filter: grayscale(100%); /* Opcional: deixa cinza igual os outros */
+  opacity: 0.7;
+  transition: transform 0.3s ease, filter 0.3s ease, opacity 0.3s ease;
+}
+
+.project-tech img:hover {
+  transform: scale(1.1);
+  filter: none; /* Volta a cor original no hover */
+  opacity: 1;
 }
 
 .project-links {
@@ -225,6 +241,7 @@ main {
   gap: 1rem;
   margin-top: auto;
   justify-content: center;
+  flex-wrap: wrap; /* Permite quebrar linha se o texto for grande */
 }
 
 .project-button {
@@ -265,10 +282,10 @@ footer {
 
 /* CONTAINER GERAL EXPANDIDO */
 .details-container {
-  max-width: 1600px; /* Aumentado de 1000px para 1600px */
-  width: 95%; /* Ocupa quase a tela toda */
+  max-width: 1600px;
+  width: 95%;
   margin: 0 auto;
-  padding: 2rem 0; /* Padding lateral removido para aproveitar espaço */
+  padding: 2rem 0;
   text-align: center;
 }
 
@@ -276,7 +293,7 @@ footer {
 .details-container h1,
 .details-container .tech-stack-display,
 .project-full-description {
-  max-width: 900px; /* Mantém o texto em uma largura de leitura confortável */
+  max-width: 900px;
   margin-left: auto;
   margin-right: auto;
   padding-left: 1rem;
@@ -295,6 +312,12 @@ footer {
   gap: 1.5rem;
   font-size: 3rem;
   margin-bottom: 2rem;
+  align-items: center;
+}
+
+.tech-stack-display img {
+  height: 3rem;
+  width: auto;
 }
 
 /* Descrição Completa */
@@ -319,10 +342,16 @@ footer {
   font-size: 1.05rem;
 }
 
+.project-full-description ul {
+  list-style-position: inside;
+  margin-bottom: 1rem;
+  color: var(--text-secondary);
+}
+
 /* --- CONTAINER DO CARROSSEL (LARGURA TOTAL) --- */
 .carousel-container {
   position: relative;
-  width: 100%; /* Ocupa 100% dos 1600px do pai */
+  width: 100%;
   max-width: 100%;
   margin: 0 auto 2rem auto;
   border-radius: 15px;
@@ -359,7 +388,6 @@ footer {
 .carousel-slide img {
   width: 100%;
   height: auto;
-  /* Sem limitação de altura para deixar a imagem crescer */
   display: block;
   margin: 0 auto;
 }
@@ -375,7 +403,7 @@ footer {
   padding: 20px;
   color: white;
   font-weight: bold;
-  font-size: 30px; /* Aumentei o tamanho das setas */
+  font-size: 30px;
   transition: 0.3s ease;
   user-select: none;
   background-color: rgba(0, 0, 0, 0.5);
@@ -384,11 +412,11 @@ footer {
 }
 
 .next-slide {
-  right: 10px; /* Leve afastamento da borda */
+  right: 10px;
 }
 
 .prev-slide {
-  left: 10px; /* Leve afastamento da borda */
+  left: 10px;
 }
 
 .prev-slide:hover,
