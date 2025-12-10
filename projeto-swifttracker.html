@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Swift Tracker | Detalhes do Projeto</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css"
+    />
+  </head>
+  <body>
+    <header class="header">
+      <nav class="nav">
+        <a href="index.html" class="nav-logo">VCC</a>
+        <ul class="nav-menu">
+          <li class="nav-item">
+            <a href="index.html" class="nav-link">← Voltar para Home</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="details-page">
+      <div class="details-container">
+        <h1>Swift Tracker</h1>
+
+        <div class="tech-stack-display">
+          <i class="devicon-typescript-plain colored"></i>
+          <i class="devicon-nextjs-original-wordmark"></i>
+          <i class="devicon-python-plain colored"></i>
+        </div>
+
+        <div class="project-full-description">
+          <h3>Sobre o Projeto</h3>
+          <p>
+            Desenvolvi uma aplicação Full-Stack robusta para monitoramento e
+            previsão da cotação do Dólar (USD/BRL) em tempo real. O sistema
+            utiliza uma arquitetura desacoplada para garantir performance e
+            escalabilidade.
+          </p>
+          <p>
+            O diferencial do projeto é seu "Core" de inteligência, que analisa
+            41 indicadores macroeconômicos (incluindo Commodities, Juros
+            Americanos/Treasuries, Índices Globais e Criptomoedas) para projetar
+            tendências de curto prazo.
+          </p>
+
+          <h3>Principais Funcionalidades:</h3>
+          <ul>
+            <li>
+              <strong>Monitoramento em Tempo Real:</strong> Integração com
+              AwesomeAPI para cotação live (atualização a cada 5s).
+            </li>
+            <li>
+              <strong>Algoritmo Ponderado:</strong> Backend em Python que coleta
+              e processa 41 variáveis de mercado via Yahoo Finance para gerar um
+              "Alvo IA".
+            </li>
+            <li>
+              <strong>Histórico de Assertividade:</strong> Sistema de log
+              automático no Supabase que compara previsões passadas com a
+              realidade, gerando uma lista de assertividade auditável.
+            </li>
+            <li>
+              <strong>Dashboard Interativo:</strong> Interface moderna em Dark
+              Mode com gráficos e indicadores visuais de tendência.
+            </li>
+          </ul>
+
+          <h3>Tecnologias Utilizadas:</h3>
+          <ul>
+            <li>
+              <strong>Frontend:</strong> Next.js, TypeScript, Tailwind CSS.
+            </li>
+            <li>
+              <strong>Backend:</strong> Python, FastAPI, Pandas, yfinance.
+            </li>
+            <li>
+              <strong>Infraestrutura:</strong> Render (Hospedagem de
+              Microsserviços), Vercel (Frontend).
+            </li>
+            <li>
+              <strong>Banco de Dados:</strong> Supabase (PostgreSQL) para logs
+              históricos e análise de performance.
+            </li>
+          </ul>
+        </div>
+
+        <div class="carousel-container">
+          <div class="carousel-slide fade">
+            <img src="./Swift%20Tracker%20Imagens/1.png" alt="Tela 1" />
+          </div>
+          <div class="carousel-slide fade">
+            <img src="./Swift%20Tracker%20Imagens/2.png" alt="Tela 2" />
+          </div>
+          <div class="carousel-slide fade">
+            <img src="./Swift%20Tracker%20Imagens/3.png" alt="Tela 3" />
+          </div>
+          <div class="carousel-slide fade">
+            <video controls autoplay muted loop>
+              <source
+                src="./Swift%20Tracker%20Imagens/video.mp4"
+                type="video/mp4"
+              />
+              Seu navegador não suporta a tag de vídeo.
+            </video>
+          </div>
+
+          <a class="prev-slide">&#10094;</a>
+          <a class="next-slide">&#10095;</a>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 Vinicius Caporicci Calça. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

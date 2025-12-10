@@ -384,12 +384,13 @@ footer {
   }
 }
 
-/* IMAGEM */
-.carousel-slide img {
+/* MÍDIA DO CARROSSEL (IMG E VIDEO) */
+.carousel-slide img,
+.carousel-slide video {
   width: auto; /* Deixa a largura se ajustar sozinha */
   max-width: 100%;
   height: auto;
-  max-height: 550px; /* IMPORTANTE: Fixei em 550px para ficar tamanho de celular */
+  max-height: 550px; /* Fixei em 550px para ficar tamanho de celular */
   display: block;
   margin: 0 auto;
   object-fit: contain;
