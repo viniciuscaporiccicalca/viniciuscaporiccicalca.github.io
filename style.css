@@ -386,10 +386,13 @@ footer {
 
 /* IMAGEM */
 .carousel-slide img {
-  width: 100%;
-  height: auto;
+  width: auto; /* Mudança: permite que a largura se ajuste automaticamente */
+  max-width: 100%; /* Garante que não ultrapasse a largura da tela no mobile */
+  height: auto; /* Mantém a proporção */
+  max-height: 80vh; /* Correção: Limita a altura a 80% da tela do navegador */
   display: block;
   margin: 0 auto;
+  object-fit: contain; /* Garante que a imagem inteira apareça dentro da área */
 }
 
 /* Botões Anterior e Próximo */
