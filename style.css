@@ -3,13 +3,16 @@
 
 /* --- Variáveis de Cores e Estilos Globais --- */
 :root {
-  --bg-dark-gradient: radial-gradient(circle, #2c1a4d, #0f0524);
-  --accent-purple: #8e44ad;
-  --accent-magenta: #c039a3;
-  --text-primary: #f5f5f5;
-  --text-secondary: #a7a3b0;
-  --card-bg: rgba(255, 255, 255, 0.05);
-  --button-bg: #8e44ad;
+  --bg-page: #ffffff;
+  --bg-soft: #f7f7f7;
+  --bg-ink: #050505;
+  --text-primary: #050505;
+  --text-secondary: #555555;
+  --text-muted: #777777;
+  --border-subtle: #dfdfdf;
+  --border-strong: #050505;
+  --card-bg: #ffffff;
+  --shadow-minimal: 0 16px 45px rgba(0, 0, 0, 0.08);
 }
 
 * {
@@ -24,7 +27,11 @@ html {
 
 body {
   font-family: "Poppins", sans-serif;
-  background: var(--bg-dark-gradient);
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.025) 1px, transparent 1px),
+    var(--bg-page);
+  background-size: 48px 48px;
   color: var(--text-primary);
   line-height: 1.6;
 }
@@ -32,22 +39,22 @@ body {
 /* --- Cabeçalho e Navegação --- */
 .header {
   width: 100%;
-  padding: 1.5rem 5%;
+  padding: 1.15rem 5%;
   position: fixed;
   top: 0;
   left: 0;
   z-index: 100;
-  background-color: rgba(15, 5, 36, 0.5);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.86);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border-subtle);
 }
 
 .nav {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   max-width: 1200px;
   margin: 0 auto;
+  gap: 1.25rem;
 }
 
 .nav-logo {
@@ -55,23 +62,80 @@ body {
   font-weight: 700;
   color: var(--text-primary);
   text-decoration: none;
+  letter-spacing: 0;
 }
 
 .nav-menu {
   display: flex;
   list-style: none;
   gap: 2rem;
+  margin-left: auto;
 }
 
 .nav-link {
   color: var(--text-secondary);
   text-decoration: none;
   font-weight: 400;
-  transition: color 0.3s ease;
+  transition: color 0.2s ease;
+  position: relative;
 }
 
 .nav-link:hover {
-  color: var(--accent-magenta);
+  color: var(--text-primary);
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.35rem;
+  width: 100%;
+  height: 1px;
+  background: var(--text-primary);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.2s ease;
+}
+
+.nav-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.language-switcher {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding-left: 1rem;
+  border-left: 1px solid var(--border-subtle);
+}
+
+.language-button {
+  border: 1px solid var(--border-subtle);
+  background: transparent;
+  color: var(--text-secondary);
+  border-radius: 999px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 0.45rem 0.75rem;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.language-button:hover,
+.language-button.active {
+  background: var(--bg-ink);
+  border-color: var(--bg-ink);
+  color: #ffffff;
+}
+
+.language-button:hover {
+  transform: translateY(-1px);
 }
 
 .hamburger {
@@ -117,7 +181,7 @@ main {
 .about-me-text h2 {
   font-size: 1.5rem;
   font-weight: 300;
-  color: var(--accent-magenta);
+  color: var(--text-secondary);
   margin-bottom: 1rem;
 }
 
@@ -135,8 +199,9 @@ main {
   height: 300px;
   object-fit: cover;
   border-radius: 50%;
-  border: 5px solid var(--accent-purple);
-  box-shadow: 0 0 25px var(--accent-purple);
+  border: 1px solid var(--border-strong);
+  filter: grayscale(100%);
+  box-shadow: var(--shadow-minimal);
 }
 
 /* --- Barra de Habilidades (Skills) --- */
@@ -146,17 +211,25 @@ main {
   align-items: center;
   flex-wrap: wrap;
   gap: 2rem;
-  background-color: var(--card-bg);
+  background-color: rgba(255, 255, 255, 0.74);
   padding: 2rem 5%;
   max-width: 1200px;
   margin: 2rem auto;
-  border-radius: 10px;
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  box-shadow: var(--shadow-minimal);
 }
 
 .skill-item i {
   font-size: 4rem;
   color: var(--text-secondary);
   transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.colored,
+.project-tech i,
+.tech-stack-display i {
+  color: var(--text-primary) !important;
 }
 
 .skill-item i:hover {
@@ -186,9 +259,12 @@ main {
 .project-card {
   background: var(--card-bg);
   padding: 1.5rem;
-  border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  transition: transform 0.3s ease;
+  border-radius: 8px;
+  border: 1px solid var(--border-subtle);
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -196,7 +272,9 @@ main {
 }
 
 .project-card:hover {
-  transform: translateY(-10px);
+  transform: translateY(-6px);
+  border-color: var(--border-strong);
+  box-shadow: var(--shadow-minimal);
 }
 
 .project-image {
@@ -205,6 +283,12 @@ main {
   object-fit: cover;
   border-radius: 8px;
   margin-bottom: 1rem;
+  filter: grayscale(100%);
+  transition: filter 0.25s ease;
+}
+
+.project-card:hover .project-image {
+  filter: grayscale(0%);
 }
 
 .project-card h3 {
@@ -247,20 +331,25 @@ main {
 .project-button {
   display: inline-block;
   padding: 0.6rem 1.2rem;
-  background-color: var(--button-bg);
+  background-color: transparent;
   color: var(--text-primary);
   text-decoration: none;
-  border: none;
+  border: 1px solid var(--border-strong);
   border-radius: 5px;
   font-weight: 500;
-  transition: background-color 0.3s ease;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
   cursor: pointer;
   font-family: inherit;
   font-size: 1rem;
 }
 
 .project-button:hover {
-  background-color: var(--accent-magenta);
+  background-color: var(--bg-ink);
+  color: #ffffff;
+  transform: translateY(-1px);
 }
 
 /* --- Rodapé --- */
@@ -270,7 +359,7 @@ footer {
   margin-top: 2rem;
   color: var(--text-secondary);
   font-size: 0.9rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid var(--border-subtle);
 }
 
 /* --- ESTILOS DA PÁGINA DE DETALHES (Carrossel) --- */
@@ -325,13 +414,14 @@ footer {
   text-align: left;
   background: var(--card-bg);
   padding: 2rem;
-  border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  border: 1px solid var(--border-subtle);
   margin-bottom: 3rem;
+  box-shadow: var(--shadow-minimal);
 }
 
 .project-full-description h3 {
-  color: var(--accent-magenta);
+  color: var(--text-primary);
   margin-bottom: 1rem;
   font-size: 1.8rem;
 }
@@ -354,11 +444,11 @@ footer {
   width: 100%;
   max-width: 100%;
   margin: 0 auto 2rem auto;
-  border-radius: 15px;
+  border-radius: 8px;
   overflow: hidden;
-  background-color: rgba(0, 0, 0, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 0 30px rgba(142, 68, 173, 0.2);
+  background-color: var(--bg-soft);
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-minimal);
 }
 
 /* Slides */
@@ -405,12 +495,12 @@ footer {
   transform: translateY(-50%);
   width: auto;
   padding: 20px;
-  color: white;
+  color: #ffffff;
   font-weight: bold;
   font-size: 30px;
   transition: 0.3s ease;
   user-select: none;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.82);
   z-index: 2;
   border-radius: 5px;
 }
@@ -425,13 +515,14 @@ footer {
 
 .prev-slide:hover,
 .next-slide:hover {
-  background-color: var(--accent-purple);
+  background-color: var(--bg-ink);
 }
 
 /* --- Media Queries --- */
 @media (max-width: 768px) {
   .hamburger {
     display: block;
+    margin-left: auto;
   }
 
   .hamburger.active .bar:nth-child(2) {
@@ -447,13 +538,14 @@ footer {
   .nav-menu {
     position: fixed;
     left: -100%;
-    top: 80px;
+    top: 74px;
     flex-direction: column;
-    background-color: #0f0524;
+    background-color: rgba(255, 255, 255, 0.96);
     width: 100%;
     text-align: center;
     transition: 0.3s;
     gap: 0;
+    border-bottom: 1px solid var(--border-subtle);
   }
 
   .nav-menu.active {
@@ -484,5 +576,25 @@ footer {
   }
   .skill-item i {
     font-size: 3rem;
+  }
+}
+
+@media (max-width: 520px) {
+  .header {
+    padding: 0.95rem 4%;
+  }
+
+  .nav {
+    gap: 0.75rem;
+  }
+
+  .language-switcher {
+    gap: 0.3rem;
+    padding-left: 0.75rem;
+  }
+
+  .language-button {
+    font-size: 0.7rem;
+    padding: 0.38rem 0.55rem;
   }
 }
